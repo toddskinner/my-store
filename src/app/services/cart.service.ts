@@ -27,18 +27,17 @@ export class CartService {
     for (let index = 0; index < this.cartItems.length; index++) {
       if(this.cartItems[index].id == orderItem.id){
         itemPrevAdded = true;
+        this.cartItems[index].quantity = this.cartItems[index].quantity + orderItem.quantity;
+        this.cartItems[index].subtotal = this.cartItems[index].subtotal + (orderItem.quantity * orderItem.price);
+        this.alertAddedItem(orderItem);
       }
     }
 
-    if(quantity !== 0 && !itemPrevAdded){
+    if(!itemPrevAdded){
       this.cartItems.push(orderItem);
-      if((orderItem.quantity > 1) && (orderItem.name === 'Book' || 
-      orderItem.name === 'Backpack' || orderItem.name === 'Cup' || orderItem.name === 'Shirt')){
-        alert(orderItem.name + "s added to your cart!");
-      } else {
-        alert(orderItem.name + " added to your cart!");
-      }
+      this.alertAddedItem(orderItem);
     }
+
     return this.cartItems;
   }
 
@@ -102,9 +101,18 @@ export class CartService {
 
     if((item.quantity > 1) && (item.name === 'Book' || 
     item.name === 'Backpack' || item.name === 'Cup' || item.name === 'Shirt')){
-        alert(item.name + "s removed from your cart!");
+        alert(item.quantity + ' ' + item.name + "s removed from your cart!");
     } else {
-        alert(item.name + " removed from your cart!");
+        alert(item.quantity + ' ' +item.name + " removed from your cart!");
+    }
+  }
+
+  alertAddedItem(orderItem: OrderItem){
+    if((orderItem.quantity > 1) && (orderItem.name === 'Book' || 
+      orderItem.name === 'Backpack' || orderItem.name === 'Cup' || orderItem.name === 'Shirt')){
+        alert(orderItem.quantity + ' ' + orderItem.name + "s added to your cart!");
+    } else {
+        alert(orderItem.quantity + ' ' + orderItem.name + " added to your cart!");
     }
   }
 }

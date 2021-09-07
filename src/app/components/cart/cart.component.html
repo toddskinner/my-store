@@ -24,7 +24,7 @@
                 <input class="input-area" type="text" name="address" required minlength="6" placeholder="(Minimum 6 characters)" [(ngModel)]="address">
                 <br>
                 <p class="input-title">Credit Card Number:</p>
-                <input class="input-area" type="text" name="creditcard" required minlength="16" maxlength="16" placeholder="(16 digit number)" [(ngModel)]="creditcard"> 
+                <input class="input-area" type="number" name="creditcard" required minlength="16" maxlength="16" placeholder="(16 digit number)" [(ngModel)]="creditcard"> 
                 <br>
                 <p class="disclaimer">We'll never share your payment details with anyone else.</p>
                 <input class="submit-button" type="submit" (click)='submitForm()' [disabled]="form.invalid" value="Submit" class="btn btn-primary">
