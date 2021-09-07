@@ -11,6 +11,14 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {MatInputModule} from '@angular/material/input';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { FormsModule } from '@angular/forms';
+import { ConfirmationItemComponent } from './components/confirmation-item/confirmation-item.component';
 
 
 @NgModule({
@@ -21,15 +29,23 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ConfirmationComponent,
     ProductItemDetailComponent,
     ProductItemComponent,
-    ProductListComponent
+    ProductListComponent,
+    CartItemComponent,
+    ConfirmationItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+    MatSelectModule, 
+    MatInputModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

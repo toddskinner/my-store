@@ -1,0 +1,29 @@
+
+<div class="cart-item"> 
+    <div class="cart-item-details">
+        <img class="img" [src]="orderItem.url"/>
+    </div>
+    <div class="cart-item-details">
+        <div>
+            <h6 class="item-name">{{ orderItem.name }}</h6>
+        </div>
+        <div>
+            <h6>${{ orderItem.price }}</h6>
+        </div>
+        <div>
+            <label class="quantity-label" for="quantity">Quantity: </label>
+            <input class="quantity-input" type="number" name="quantity" min="1" max="10" value={{orderItem.quantity}} 
+                 [(ngModel)]="orderItem.quantity" (ngModelChange)="changeQuantity($event)">
+        </div>
+        <div>
+            <a class="remove" (click)="removeItem(orderItem)">Remove item</a>
+        </div>
+    </div>
+</div>
+    
+
+
+
+
+
+

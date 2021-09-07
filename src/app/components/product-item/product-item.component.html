@@ -1,8 +1,24 @@
 <div class="product-container">
-    <img class="product-image" [src]="product.url" />
+    <img class="product-image" [src]="product.url" routerLink="product/{{ product.id}}"/>
     <p>{{ product.name }}</p>
     <p>${{ product.price }}</p>
-    <p>{{ product.description }}</p>
-    <button (click)="addToCart(product)">Add To Cart</button>
+
+    <mat-form-field appearance="outline" >
+        <mat-label>Quantity</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option [value]=1>1</mat-option>
+          <mat-option [value]=2>2</mat-option>
+          <mat-option [value]=3>3</mat-option>
+          <mat-option [value]=4>4</mat-option>
+          <mat-option [value]=5>5</mat-option>
+          <mat-option [value]=6>6</mat-option>
+          <mat-option [value]=7>7</mat-option>
+          <mat-option [value]=8>8</mat-option>
+          <mat-option [value]=9>9</mat-option>
+          <mat-option [value]=10>10</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <p>You selected: {{selected}}</p> -->
+    <button (click)="addToCart(product, selected)">Add To Cart</button>
 </div>
 

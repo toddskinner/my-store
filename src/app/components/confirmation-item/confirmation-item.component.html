@@ -1,0 +1,17 @@
+
+<div class="confirmation-item"> 
+    <div class="cconfirmation-item-details">
+        <img class="img" [src]="orderItem.url"/>
+    </div>
+    <div class="confirmation-item-details">
+        <div>
+            <h6 class="item-name">{{ orderItem.name }}</h6>
+        </div>
+        <div>
+            <h6>${{ orderItem.price }}</h6>
+        </div>
+        <div>
+            <h6>Quantity: {{ orderItem.quantity }}</h6>
+        </div>
+    </div>
+</div>

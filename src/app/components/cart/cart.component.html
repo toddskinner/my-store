@@ -1,1 +1,36 @@
-<p>cart works!</p>
+<div class="empty-cart-message" *ngIf="orderItems.length === 0">
+    Your cart is currently empty
+</div>
+<div *ngIf="orderItems.length !== 0">
+    <div class="split-container"> 
+        
+        <div class="left-panel"> 
+            <div>  
+                <app-cart-item class="cart-container" *ngFor="let orderItem of orderItems" [orderItem]="orderItem" (removedItem)="removeItem($event)"></app-cart-item>
+            </div>  
+            <div class="order-total-container"> 
+                <div class="order-total" *ngIf="orderItems.length !== 0">  
+                    Total: ${{ getCartTotal() }}
+                </div>    
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <form class="customer-form" #form="ngForm" (ngSubmit)="submitForm()">
+                <p class="input-title">Full Name:</p>
+                <input class="input-area" type="text" name="fullname" required minlength="3" maxlength="32" placeholder="(Minimum 3 characters)" [(ngModel)]="fullname">
+                <br>
+                <p class="input-title">Address:</p>
+                <input class="input-area" type="text" name="address" required minlength="6" placeholder="(Minimum 6 characters)" [(ngModel)]="address">
+                <br>
+                <p class="input-title">Credit Card Number:</p>
+                <input class="input-area" type="text" name="creditcard" required minlength="16" maxlength="16" placeholder="(16 digit number)" [(ngModel)]="creditcard"> 
+                <br>
+                <p class="disclaimer">We'll never share your payment details with anyone else.</p>
+                <input class="submit-button" type="submit" (click)='submitForm()' [disabled]="form.invalid" value="Submit" class="btn btn-primary">
+            </form>
+            
+        </div>
+    </div>
+</div>
+
