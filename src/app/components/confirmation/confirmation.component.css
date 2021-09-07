@@ -46,6 +46,7 @@
 
   .split-container {
     display: flex;
+    margin-top: 6px;
   }
 
   .customer-address-and-creditcard {
@@ -57,4 +58,12 @@
   .customer-name {
     margin-top: 24px;
     font-size: large;
+  }
+
+  .back-to-products {
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+    margin-left: 4px;
+    font-size: small;
   }
